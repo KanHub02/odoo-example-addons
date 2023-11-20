@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_nm_legal_entities_nm_legal_entities,nm_legal_entities.nm_legal_entities,model_nm_legal_entities_nm_legal_entities,base.group_user,1,1,1,1

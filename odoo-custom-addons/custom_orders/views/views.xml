@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <record id="view_order_form" model="ir.ui.view">
+      <field name="name">custom.order.form</field>
+      <field name="model">custom.order</field>
+      <field name="arch" type="xml">
+        <form string="Custom Order">
+          <header>
+            <button string="Create Order in 1C" type="object" name="button_create_order_in_1C" class="oe_highlight"/>
+            <button string="Create Payment Record" type="object" name="button_create_payment_record"/>
+          </header>
+          <sheet>
+            <group>
+              <field name="invoice_no"/>
+              <field name="invoice_prefix"/>
+              <field name="payment_due_date"/>
+              <field name="invoice_date"/>
+              <field name="currency_id"/>
+              <field name="responsible_operation_id"/>
+              <field name="responsible_sales_id"/>
+              <field name="customer_type"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_order_tree" model="ir.ui.view">
+      <field name="name">custom.order.tree</field>
+      <field name="model">custom.order</field>
+      <field name="arch" type="xml">
+        <tree string="Custom Orders">
+          <field name="invoice_no"/>
+          <field name="invoice_prefix"/>
+          <field name="payment_due_date"/>
+          <field name="invoice_date"/>
+          <field name="currency_id"/>
+          <field name="responsible_operation_id"/>
+          <field name="responsible_sales_id"/>
+          <field name="customer_type"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="action_custom_orders_tree" model="ir.actions.act_window">
+      <field name="name">Custom Orders</field>
+      <field name="res_model">custom.order</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_custom_order_form"
+              name="Custom Order Form"
+              action="action_custom_order"
+              parent="sale.sale_order_menu"
+              sequence="10"/>
+
+    <menuitem id="menu_custom_orders_tree"
+              name="Custom Orders List"
+              action="action_custom_orders_tree"
+              parent="sale.sale_order_menu"
+              sequence="20"/>
+  </data>
+</odoo>

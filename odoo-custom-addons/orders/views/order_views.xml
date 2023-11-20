@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_custom_order_form" model="ir.ui.view">
+        <field name="name">custom.order.form</field>
+        <field name="model">custom.order</field>
+        <field name="arch" type="xml">
+            <form string="Custom Order">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date_order"/>
+                    </group>
+                    <notebook>
+                        <page string="Order Lines">
+                            <field name="order_line_ids" mode="tree,kanban">
+                                <tree>
+                                    <field name="product_id"/>
+                                    <field name="product_qty"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_order_tree" model="ir.ui.view">
+        <field name="name">custom.order.tree</field>
+        <field name="model">custom.order</field>
+        <field name="arch" type="xml">
+            <tree string="Custom Orders">
+                <field name="name"/>
+                <field name="date_order"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_custom_orders" model="ir.actions.act_window">
+        <field name="name">Custom Orders</field>
+        <field name="res_model">custom.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_custom_order" name="Custom Orders"
+              action="action_custom_orders" parent="sale.sale_order_menu"/>
+</odoo>

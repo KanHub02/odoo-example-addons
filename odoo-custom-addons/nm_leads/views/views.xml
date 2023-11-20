@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Tree view -->
+        <record id="view_lead_tree" model="ir.ui.view">
+            <field name="name">nm_leads.lead.tree</field>
+            <field name="model">nm_leads.lead</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="last_name"/>
+                    <field name="name"/>
+                    <field name="middle_name"/>
+                    <field name="phone_number"/>
+                    <field name="reference_source"/>
+                    <field name="mail"/>
+                    <field name="status"/>
+                    <field name="request_goal"/>
+                    <field name="create_from"/>
+                    <field name="created_at"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view -->
+        <record id="view_lead_form" model="ir.ui.view">
+            <field name="name">nm_leads.lead.form</field>
+            <field name="model">nm_leads.lead</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="last_name"/>
+                            <field name="name"/>
+                            <field name="middle_name"/>
+                            <field name="phone_number"/>
+                            <field name="reference_source"/>
+                            <field name="mail"/>
+                            <field name="status"/>
+                            <field name="request_goal"/>
+                            <field name="create_from"/>
+                            <field name="created_at"/>
+                            <field name="comment"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Search view -->
+        <record id="view_lead_search" model="ir.ui.view">
+            <field name="name">nm_leads.lead.search</field>
+            <field name="model">nm_leads.lead</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="last_name" string="Фамилия" filter_domain="[['last_name', 'ilike', self]]"/>
+                    <field name="name" string="Имя" filter_domain="[['name', 'ilike', self]]"/>
+                    <field name="phone_number" string="Номер телефона" filter_domain="[['phone_number', 'ilike', self]]"/>
+                    <!-- Добавьте другие поля для поиска по необходимости -->
+                </search>
+            </field>
+        </record>
+
+        <!-- Menu Action -->
+        <record id="action_lead" model="ir.actions.act_window">
+            <field name="name">Leads</field>
+            <field name="res_model">nm_leads.lead</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item -->
+
+        <menuitem id="menu_lead" name="Leads" sequence="10"/>
+        <menuitem id="menu_lead_list" name="Leads" parent="menu_lead" action="action_lead" sequence="1"/>
+
+
+
+    </data>
+</odoo>

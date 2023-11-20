@@ -1,0 +1,32 @@
+<odoo>
+  <data>
+    <record id="action_custom_orders" model="ir.actions.act_window">
+      <field name="name">Orders</field>
+      <field name="res_model">custom.order</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Create a new Order
+        </p>
+      </field>
+    </record>
+
+    <record id="action_custom_order_form" model="ir.actions.act_window">
+      <field name="name">Order Form</field>
+      <field name="res_model">custom.order</field>
+      <field name="view_mode">form</field>
+    </record>
+
+    <record id="view_order_tree" model="ir.ui.view">
+      <field name="name">custom.order.tree</field>
+      <field name="model">custom.order</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="invoice_no"/>
+          <field name="invoice_date"/>
+          <field name="responsible_sales_id"/>
+        </tree>
+      </field>
+    </record>
+  </data>
+</odoo>
